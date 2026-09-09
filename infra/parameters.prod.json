@@ -12,7 +12,7 @@
             "value": "law-healthtrackr-prod"
         },
         "containerRegistryName":{
-            "value": "crhealthtrackrprod"
+            "value": "crhealthtrackrprod123"
         },
         "keyVaultName":{
             "value": "kv-healthtrackrprod"
