@@ -46,12 +46,11 @@ resource backendApi 'Microsoft.App/containerApps@2023-11-02-preview' = {
         transport: 'http'
       }
       registries: [
-        {
-          server: containerRegistry.properties.loginServer
-          username: containerRegistry.listCredentials().username
-          identity: 'system'
-        }
-      ]
+          {
+            server: containerRegistry.properties.loginServer
+            identity: 'system'
+          }
+        ]
       secrets: [
         {
           name: 'app-insights-key'
