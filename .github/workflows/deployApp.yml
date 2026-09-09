@@ -159,7 +159,7 @@ jobs:
   
     deploy:
       runs-on: ubuntu-latest
-      environment: Production
+      # environment: Production
       needs: preview
       steps:
         - uses: actions/checkout@v4
