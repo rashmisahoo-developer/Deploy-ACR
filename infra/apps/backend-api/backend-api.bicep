@@ -17,7 +17,7 @@ param imageName string
 param tags object
 
 var containerAppName = 'healthtrackr-api'
-var acrPullRoleId = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '7f951dda-4ed3-4680-a7ca-43fe172d538d')
+var acrPullRoleId = subscriptionResourceId('Microsoft.Authorization/roleDefinitions','7f951dda-4ed3-4680-a7ca-43fe172d538d')
 var keyVaultSecretUserRoleId = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '4633458b-17de-408a-b874-0445c86b69e6')
 
 resource env 'Microsoft.App/managedEnvironments@2023-11-02-preview' existing = {
@@ -102,7 +102,11 @@ resource backendApi 'Microsoft.App/containerApps@2023-11-02-preview' = {
 }
 
 resource acrPullRole 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-  name: guid(containerRegistry.id, backendApi.id, acrPullRoleId)
+  name: guid(
+  containerRegistry.id,
+  backendApi.identity.principalId,
+  acrPullRoleId
+)
   scope: containerRegistry
   properties: {
     principalId: backendApi.identity.principalId
