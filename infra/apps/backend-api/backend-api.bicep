@@ -102,11 +102,7 @@ resource backendApi 'Microsoft.App/containerApps@2023-11-02-preview' = {
 }
 
 resource acrPullRole 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-  name: guid(
-  containerRegistry.id,
-  backendApi.identity.principalId,
-  acrPullRoleId
-)
+  name: guid(containerRegistry.id, backendApi.id, acrPullRoleId)
   scope: containerRegistry
   properties: {
     principalId: backendApi.identity.principalId
