@@ -182,5 +182,5 @@ jobs:
             deploymentName: deploy-${{ github.run_number }}
             resourceGroupName: ${{ secrets.AZURE_RG_NAME }}
             template: ./infra/main.bicep
-            parameters: ./infra/parameters.prod.json backendApiImage=${{ steps.getacrserver.outputs.loginServer }}/healthtrackr-api:${{ github.sha }} frontendUIImage=${{ steps.getacrserver.outputs.loginServer }}/healthtrackr-ui:${{ github.sha }}
+            parameters: ./infra/parameters.prod.json backendApiImage=mcr.microsoft.com/dotnet/samples:aspnetapp frontendUIImage=${{ steps.getacrserver.outputs.loginServer }}/healthtrackr-ui:${{ github.sha }}
             failOnStdErr: false
