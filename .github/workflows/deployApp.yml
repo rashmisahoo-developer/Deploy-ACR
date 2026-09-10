@@ -182,5 +182,5 @@ jobs:
             deploymentName: deploy-${{ github.run_number }}
             resourceGroupName: ${{ secrets.AZURE_RG_NAME }}
             template: ./infra/main.bicep
-            parameters: ./infra/parameters.prod.json backendApiImage=mcr.microsoft.com/dotnet/samples:aspnetapp frontendUIImage=${{ steps.getacrserver.outputs.loginServer }}/healthtrackr-ui:${{ github.sha }}
+            parameters: ./infra/parameters.prod.json backendApiImage=mcr.microsoft.com/dotnet/samples:aspnetapp frontendUIImage=mcr.microsoft.com/azure-app-service/samples/aspnethelloworld
             failOnStdErr: false
