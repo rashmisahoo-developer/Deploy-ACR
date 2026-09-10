@@ -48,13 +48,13 @@ resource frontend 'Microsoft.App/containerApps@2023-11-02-preview' = {
         targetPort: 8080
         transport: 'http'
       }
-      registries: [
+      /* registries: [
         {
           server: containerRegistry.properties.loginServer
           username: containerRegistry.listCredentials().username
           identity: 'system'
         }
-      ]
+      ] */
       secrets: [
         {
           name: 'app-insights-key'
